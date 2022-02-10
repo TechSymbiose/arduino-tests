@@ -1,9 +1,13 @@
-/* Objectif : tester l'utilisation d'un joystick en affichant les valeurs analogiques sur le moniteur
- *  
- *  Date de création : 27/12/2020
- *  Auteur : Adrien Louvrier
- *  Circuit :
- *  - un joystick connecté au 5V, grd, pin 2, A0 et A1
+/* Code written by Adrien Louvrier, 27/12/2020
+ * 
+ * Objective : test a joystick printing values on the monitor
+ * Card used : Arduino Uno
+ * 
+ * Electronic Circuit :
+ * input :
+ *  - joystick (x axis pin -> pin A0, y axis pin -> A1, switch pin -> pin 2, Vcc pin -> pin 5V, grd pin -> grd pin)
+ * 
+ * output : none
  */
 
  #define Vrx A0
@@ -12,21 +16,19 @@
  #define switch 2
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(switch, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   int VrxValue = analogRead(Vrx);
   int VryValue = analogRead(Vry);
   int switchValue = digitalRead(switch);
 
-  Serial.print("Axe X : ");
+  Serial.print("X axis : ");
   Serial.print(VrxValue);
   Serial.print("     ");
-  Serial.print("Axe Y : ");
+  Serial.print("Y axis : ");
   Serial.print(VryValue);
   Serial.print("     ");
   Serial.print("Switch : ");

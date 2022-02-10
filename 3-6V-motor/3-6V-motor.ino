@@ -6,10 +6,11 @@
  * Electronic Circuit :
  * 
  * input :
- * - motor in parallel with a diode, transistor and 220 Ohms resistor connected to pin 5, 5V and grd
+ * - joystick connected to pin A0, 5V and grd (x axis used)
  * 
  * output :
- * - joystick connected to pin A0, 5V and grd (x axis used)
+ * - motor in parallel with a diode, transistor and 220 Ohms resistor connected to pin 5, 5V and grd
+ *
  */
 
  #define joystickPin A0

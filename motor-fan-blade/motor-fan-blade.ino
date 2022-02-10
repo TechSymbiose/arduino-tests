@@ -1,27 +1,33 @@
-  /* Objectif : piloter un moteur à l'aide d'un bouton
- *  
- *  Date de création : 26/12/2020
- *  Auteur : Adrien Louvrier
- *  Circuit :
- *  - moteur // diode, transistor, réistance 220 Ohms connecté à pin 5, 5V et grd
+/* Code written by Adrien Louvrier, 26/12/2020
+ * 
+ * Objective : control a DC motor with a button
+ * Card used : Arduino Uno
+ * 
+ * Electronic Circuit :
+ * 
+ * input :
+ * - A button connected to 5V and pin 3 with a 10kOhms resistor in parallel connected to 5V and grd
+ * 
+ * output :
+ * - DC motor in parallel with a diode, transistor and 220 Ohms resistor connected to pin 5, 5V and grd
  */
 
-#define button 3
-#define motor 5
+#define buttonPin 3
+#define motorPin 5
+
+byte buttonValue = 0;
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(button, INPUT);
-  pinMode(motor, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  pinMode(motorPin, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  int value = digitalRead(button);
-  if (value){
-    digitalWrite(motor, HIGH);
+  buttonValue = digitalRead(buttonPin);
+  if (buttonValue){
+    digitalWrite(motorPin, HIGH);
   }
   else{
-    digitalWrite(motor, LOW);
+    digitalWrite(motorPin, LOW);
   }
 }

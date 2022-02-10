@@ -1,29 +1,34 @@
-/* Objectif : allumer une led avec une tilt ball
- * Date de création : 03/01/2021
- * Auteur : Adrien Louvrier
- * Circuit : 
- * - une tilt ball connectée à 8 et grd
- * - une led avec résistance 330 Ohms connectée à pin 2 et grd
+/* Code written by Adrien Louvrier, 03/01/2021
+ *
+ * Objective : turn on a led with a tilt ball
+ * Card used : Arduino Uno
+ * 
+ * Electronic Circuit :
+ * 
+ * input :
+ * - tilt ball connected to pin 8 and grd pin
+ * 
+ * output
+ * - led with 330 Ohms resistor in serial connected to pin 2 and grd pin
  */
 
 #define tiltPin 8
 #define ledPin 2
 
-int ledValue = 0;
+byte ledValue = 0;
 
 void setup() {
-  Serial.begin(9600);
   pinMode(tiltPin, INPUT);
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  int tiltValue = digitalRead(tiltPin);
-  Serial.println(tiltValue);
-  if (tiltValue){
+  tiltValue = digitalRead(tiltPin);
+
+  if (tiltValue){ // If the ball is tilted, turn on the led
     digitalWrite(ledPin, HIGH);
   }
-  else{
+  else { // If the ball isn't tilted, turn off the led
     digitalWrite(ledPin, LOW);
   }
 }

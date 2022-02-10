@@ -1,10 +1,15 @@
-/* Objectif : contrôler un servomoteur à l'aide d'un joystick
- *  
- *  Date de création : 28/12/2020
- *  Auteur : Adrien Louvrier
- *  Circuit :
- *  - un joystick connecté à A0, 5V et grd
- *  - un servomoteur connecté à la pin 2, 5V et grd 
+/* Code written by Adrien Louvrier, 28/12/2020
+ * 
+ * Objective : control a servomotor using a joystick
+ * Card used : Arduino Uno
+ * 
+ * Electronic Circuit : control a servomotor using a joystick.
+ * 
+ * intput :
+ * - a joystick connected to pin A0, 5V and grd
+ * 
+ * output :
+ * - a servomotor connected to pin 2, 5V and grd
  */
 
  #include <Servo.h>
@@ -12,7 +17,9 @@
  #define servoPin 2
  #define joystickPin A0
 
- Servo servo;
+int joystickValue = 0;
+
+Servo servo;
 int value = 90;
 
 void setup() {
@@ -23,7 +30,7 @@ void setup() {
 }
 
 void loop() {
-  int joystickValue = analogRead(joystickPin);
+  joystickValue = analogRead(joystickPin);
   Serial.println(joystickValue);
   
   if (joystickValue < 100 && value < 180){

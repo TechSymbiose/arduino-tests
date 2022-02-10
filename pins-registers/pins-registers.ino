@@ -1,9 +1,14 @@
 /* Code written by Adrien Louvrier, 15/01/2022
+ *
  * Objective : turn on and off a led using registers instead of pinMode and digitalWrite functions
  * Card used : Arduin Uno
+ * 
  * Electronic Circuit :
+ * 
  * input : none
- * output : led with 330 Ohms resistor connected to pin 13
+ * 
+ * output : 
+ * - led with 330 Ohms resistor connected to pin 13
  */
 
 #define PIN_0 B00000001
@@ -67,7 +72,6 @@ void writePin(volatile uint8_t *port, int pin, int state);
 
 void setup() {
   setPin(ledRegister, ledPin, OUTPUT_MODE);
-  //pinMode(13, OUTPUT);
 }
 
 void loop() {
